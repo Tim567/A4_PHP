@@ -1,7 +1,7 @@
 <?php
   //constants for including files
   // define("WEB_ROOT", DIRECTORY_SEPARATOR . "OOP_template" . DIRECTORY_SEPARATOR);
-  define("WEB_ROOT", DIRECTORY_SEPARATOR . "School/php_a4/Oefenopdrachten/mvc" . DIRECTORY_SEPARATOR);
+  define("WEB_ROOT", DIRECTORY_SEPARATOR . "School/A4_PHP/Oefenopdrachten/mvc" . DIRECTORY_SEPARATOR);
 
   define("LOCAL_ROOT", $_SERVER['DOCUMENT_ROOT'] . WEB_ROOT);
 
