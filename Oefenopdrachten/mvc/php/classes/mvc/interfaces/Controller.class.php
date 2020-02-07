@@ -1,7 +1,6 @@
 <?php
-    namespace mvc\interfaces;
-
-    interface Controller{
-        
-    }
+namespace mvc\interfaces;
+interface Controller{
+    
+}
 ?>

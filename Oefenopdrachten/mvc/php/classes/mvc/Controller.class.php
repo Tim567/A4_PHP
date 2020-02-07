@@ -1,10 +1,9 @@
 <?php
 namespace mvc;
-
-abstract class Controller implements \mvc\interfaces\Controller{
+abstract class Controller implements \mvc\interfaces\Controller {
     private $model;
 
-    public function __construct($model) {
+    public function __construct($model){
         $this->model = $model;
     }
 
@@ -16,9 +15,9 @@ abstract class Controller implements \mvc\interfaces\Controller{
         return $this->getData($name, "GET");
     }
 
-    public function getData($name, $type = "POST"){
-        $dataSourse = ($type == "POST"? $_POST : $_GET);
-        return isset($dataSourse[$name]) ? $dataSourse[$name] : null;
+    public function getData($name , $type = "POST"){
+        $dataSource = ($type == "POST"? $_POST : $_GET );
+        return isset($dataSource[$name])? $dataSource[$name] : null;
     }
 }
 ?>
