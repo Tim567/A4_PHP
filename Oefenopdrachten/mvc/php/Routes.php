@@ -13,5 +13,9 @@ $routes = array(
         "view" => "TestView",
         "controller" => "TestController",
     ),
+    "data" => array(
+        "view" => "DataView",
+        "controller" => "DataController"
+    )
 )
 ?>
