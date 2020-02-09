@@ -13,10 +13,17 @@ class Router{
         if (isset($_GET['route'])){
             $this->route = explode("/" , $_GET['route']);
         }
-        $this->route = isset($routes[$this->getRoute()])? $this->getRoute() : DEFAULT_ROUTE;
-        $this->controller = "\\mvc\\controllers\\". $routes[$this->route]['controller'];
-        $this->view = "\\views\\". $routes[$this->route]['view'];
-        // $this->model = "\\models\\". $routes[$this->route]['model'];
+        $route = isset($routes[$this->getRoute()])? $this->getRoute() : DEFAULT_ROUTE;
+        $controller = isset($routes[$route]['controller'])? "\\mvc\\controllers\\". $routes[$route]['controller'] : null;
+        $view = isset($routes[$route]['view'])? "\\views\\".$routes[$route]['view'] : null;
+        $model = isset($routes[$route]['model'])? "\\mvc\\models\\". $routes[$route]['model'] : null;
+        if (isset($routes[$route]['model'])){
+            $this->model = new $model();
+        }else{
+            $this->model = null;
+        }
+        $this->controller = new $controller($this->model);
+        $this->view = new $view($this->controller, $this->model);
     }
 
     private function getRoute(){
@@ -24,9 +31,6 @@ class Router{
     }
     public function getView(){
         return $this->view;
-    }
-    public function getController(){
-        return $this->controller;
     }
 }
 ?>

@@ -11,12 +11,7 @@
 
         public function __toString(){
             try {
-                $controllerString = $this->router->getController(); 
-                $controller = new $controllerString(null);
-                // $view->getHTML();
-                $viewString = $this->router->getView(); 
-                $view = new $viewString($controller, null);
-                return $view->getHTML();
+                return $this->router->getView()->getHTML();
             } catch (Exception $e) {
                 return $e->getMessage;
             }
