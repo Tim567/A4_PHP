@@ -2,7 +2,12 @@
 namespace views;
 class PageView extends \mvc\View{
     public function getHTML(){
-        return $this->model->getData();
+        $data = $this->model->getData();
+        $string = '';
+        for ($i=0; $i < count($data); $i++) { 
+            $string .= $data[$i].'</br>';
+        }
+        return $string;
     }
 }
 ?>

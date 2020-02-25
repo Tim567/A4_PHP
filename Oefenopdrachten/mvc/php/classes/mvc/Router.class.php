@@ -22,8 +22,17 @@ class Router{
         }else{
             $this->model = null;
         }
-        $this->controller = new $controller($this->model);
-        $this->view = new $view($this->controller, $this->model);
+        if (isset($routes[$route]['controller'])){
+            $this->controller = new $controller($this->model);
+        }else{
+            $this->model = null;
+        }
+        if (isset($routes[$route]['view'])){
+            $this->view = new $view($this->controller, $this->model);
+        }else{
+            $this->model = null;
+        }
+        
     }
 
     private function getRoute(){

@@ -24,5 +24,8 @@ $routes = array(
         "controller" => "PageController",
         "model" => "PageModel",
     ),
+    "redirect"=> array(
+        "controller" => "RedirectController"
+    ),
 )
 ?>
